@@ -9,18 +9,19 @@
 </head>
 <body>
     <div class="wrapper">
-        <h1 style="text-align: center;">Apa yaaa isinyaa???</h1>
-        <div id="timer" style="text-align: center; margin-bottom: 20px;"></div> <!-- Tambahkan elemen timer -->
+        <h1>Apaaa yaa isiinyaaa???</h1>
+        <div id="timer"></div>
         
-        <a href="index1.html">
-            <button>Buka Suratt</button>
+        <a href="index1.html" id="openLink" class="button" style="display: none;">
+            <button>Buka Surat</button>
         </a>
     </div>
    
     <script src="script.js"></script>
     <script>
-        const openingTime = new Date('2024-12-28T00:00:00'); // Format tanggal
+        const openingTime = new Date('2024-12-28T00:00:00');
         const timerDisplay = document.getElementById('timer');
+        const openLink = document.getElementById('openLink');
 
         function updateTimer() {
             const now = new Date();
@@ -33,7 +34,8 @@
                 const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
                 timerDisplay.innerHTML = `Waktu tersisa: ${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
             } else {
-                timerDisplay.innerHTML = "Surat sudah dapat dibuka!";
+                timerDisplay.innerHTML = "Surat sudah bisa di buka";
+                openLink.style.display = 'block'; // Tampilkan tautan untuk membuka undangan
             }
         }
 
