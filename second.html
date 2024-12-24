@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesan Ulang Tahun</title>
     <style>
+        /* Resetting some default styles */
         body, html {
             margin: 0;
             padding: 0;
@@ -32,12 +33,69 @@
             z-index: -1;
         }
 
+        /* Header styling for title */
+        .header {
+            text-align: center;
+            margin-top: 30px;
+            max-width: 90%;
+        }
+
+        /* Title styling */
+        .title {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ff69b4;
+            margin: 30px 0;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Message box styling with the button below it */
+        .message-container {
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            line-height: 1.8;
+            max-width: 80%;
+            margin: 20px auto;
+        }
+
+        /* Button styling */
+        .next-button {
+            padding: 15px 40px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .next-button:hover {
+            background-color: #ff1493;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(255, 20, 147, 0.5);
+        }
+
+        .next-button:active {
+            transform: translateY(3px);
+            box-shadow: 0 2px 8px rgba(255, 20, 147, 0.3);
+        }
+
         /* Responsive image grid layout */
         .image-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 20px;
-            max-width: 80%;
+            max-width: 90%;
             margin-top: 30px;
             padding: 0 10px;
         }
@@ -56,80 +114,70 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
 
-        .title {
-            font-size: 42px;
-            font-weight: bold;
-            color: #ff69b4;
-            margin: 30px 0;
-            text-align: center;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 36px; /* Adjust title size on smaller screens */
+            }
+
+            .message-container {
+                font-size: 16px; /* Adjust message size on smaller screens */
+            }
+
+            .image-row img {
+                height: 120px; /* Smaller image size on smaller screens */
+            }
+
+            .next-button {
+                width: 80%; /* Adjust button width for smaller screens */
+                padding: 12px;
+                font-size: 18px;
+            }
         }
 
-        .message {
-            font-size: 18px;
-            color: #fff;
-            text-align: center;
-            padding: 25px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            line-height: 1.8;
-            max-width: 80%;
-            margin: 20px auto;
-        }
+        @media (max-width: 480px) {
+            .title {
+                font-size: 28px; /* Even smaller title size for mobile */
+            }
 
-        .button-row {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
+            .message-container {
+                font-size: 14px; /* Adjust message size for very small screens */
+            }
 
-        .next-button, .no-button {
-            padding: 15px 30px;
-            background-color: #ff69b4;
-            color: white;
-            border: none;
-            border-radius: 30px;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
+            .image-row img {
+                height: 100px; /* Adjust image size for very small screens */
+            }
 
-        .no-button {
-            background-color: #b0b0b0;
-        }
-
-        .next-button:hover {
-            background-color: #ff1493;
-        }
-
-        .no-button:hover {
-            background-color: #8e8e8e;
+            .next-button {
+                font-size: 16px; /* Smaller font size for buttons */
+                width: 100%; /* Full-width button on very small screens */
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header with Title -->
+    <div class="header">
+        <div class="title">Bwahahahahahahh</div>
+    </div>
+
+    <!-- Image Grid -->
     <div class="image-row">
-        <img src="10.jepg" alt="Gambar 1">
-        <img src="28.jepg" alt="Gambar 2">
+        <img src="28.jpeg" alt="Gambar 1">
+        <img src="10.jpeg" alt="Gambar 2">
         <img src="5.jpeg" alt="Gambar 3">
         <img src="1.jpeg" alt="Gambar 4">
         <img src="2.jpeg" alt="Gambar 5">
         <img src="3.jpeg" alt="Gambar 6">
         <img src="4.jpeg" alt="Gambar 7">
+        <img src="6.jpeg" alt="Gambar 8">
     </div>
 
-    <div class="title">Bwahahahahahahh</div>
-
-    <div class="message">
-        Selamat ulang tahunn yaa TUllll
-    </div>
-
-    <div class="button-row">
-        <a href="Halaman1.html" class="no-button">pencett</a>
+    <!-- Message Box with Button Below -->
+    <div class="message-container">
+        Selamat ulang tahunnya, TUllll! 🎉 Semoga hari-harimu penuh kebahagiaan! 🎂
+        <br><br>
+        <a href="Halaman1.html" class="next-button">Pencett</a>
     </div>
 </body>
 </html>
