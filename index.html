@@ -36,7 +36,7 @@
 
         /* Header dan Judul */
         h1 {
-            color: #4CAF50;
+            color: #ff50b9;
             font-size: 24px;
             margin-bottom: 20px;
         }
@@ -45,13 +45,13 @@
         #timer {
             font-size: 20px;
             font-weight: bold;
-            color: #ff5722;
+            color: #ff50b9;
             margin-bottom: 20px;
         }
 
         /* Button */
         button {
-            background-color: #4CAF50;
+            background-color: #ff50b9;
             color: white;
             padding: 15px 25px;
             border: none;
@@ -62,7 +62,12 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #eb00cc;
+        }
+
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
         }
 
         /* Responsif untuk perangkat mobile */
@@ -84,26 +89,34 @@
         <h1>Apa yaaa isinyaa???</h1>
         <div id="timer"></div> <!-- Elemen timer -->
         
-        <a href="index1.html">
-            <button>Buka Suratt</button>
+        <!-- Link dengan Button yang bisa diklik setelah tanggal 28 -->
+        <a id="buttonLink" href="index1.html">
+            <button id="openButton" disabled>Buka Suratt</button>
         </a>
     </div>
 
     <script>
-        const openingTime = new Date('2024-12-28T00:00:00'); // Format tanggal
+        const openingTime = new Date('2024-12-24T00:00:00'); // Format tanggal
         const timerDisplay = document.getElementById('timer');
+        const openButton = document.getElementById('openButton');
+        const buttonLink = document.getElementById('buttonLink');
 
         function updateTimer() {
             const now = new Date();
             const timeRemaining = openingTime - now;
 
             if (timeRemaining > 0) {
-                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-                timerDisplay.innerHTML = `Waktu tersisa: ${hours} jam ${minutes} menit ${seconds} detik`;
+                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24)); // Days remaining
+                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); // Hours remaining
+                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60)); // Minutes remaining
+                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000); // Seconds remaining
+
+                // Update the display to show days, hours, minutes, and seconds
+                timerDisplay.innerHTML = `Waktu tersisa: ${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
             } else {
                 timerDisplay.innerHTML = "Surat sudah dapat dibuka!";
+                openButton.disabled = false;  // Enable the button after the specified time
+                buttonLink.href = "index1.html";  // Make the link functional
             }
         }
 
