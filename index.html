@@ -1,41 +1,109 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <script src="https://kit.fontawesome.com/534c999894.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ulang Tahun</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/534c999894.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* Umum Reset dan Penataan Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        /* Container Utama */
+        .wrapper {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            margin: 0 10px;
+        }
+
+        /* Header dan Judul */
+        h1 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Timer */
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff5722;
+            margin-bottom: 20px;
+        }
+
+        /* Button */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsif untuk perangkat mobile */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px;
+            }
+            #timer {
+                font-size: 18px;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
-        <h1>Apaaa yaa isiinyaaa???</h1>
-        <div id="timer"></div>
+        <h1>Apa yaaa isinyaa???</h1>
+        <div id="timer"></div> <!-- Elemen timer -->
         
-        <a href="index1.html" id="openLink" class="button" style="display: none;">
-            <button>Buka Surat</button>
+        <a href="index1.html">
+            <button>Buka Suratt</button>
         </a>
     </div>
-   
-    <script src="script.js"></script>
+
     <script>
-        const openingTime = new Date('2024-12-23T00:00:00');
+        const openingTime = new Date('2024-12-02T00:00:00'); // Format tanggal
         const timerDisplay = document.getElementById('timer');
-        const openLink = document.getElementById('openLink');
 
         function updateTimer() {
             const now = new Date();
             const timeRemaining = openingTime - now;
 
             if (timeRemaining > 0) {
-                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-                timerDisplay.innerHTML = `Waktu tersisa: ${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+                timerDisplay.innerHTML = `Waktu tersisa: ${hours} jam ${minutes} menit ${seconds} detik`;
             } else {
-                timerDisplay.innerHTML = "Surat sudah bisa di buka";
-                openLink.style.display = 'block'; // Tampilkan tautan untuk membuka undangan
+                timerDisplay.innerHTML = "Surat sudah dapat dibuka!";
             }
         }
 
